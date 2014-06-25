@@ -41,4 +41,4 @@ teman
 skapa möjlighet att filtrera inlägg efter tid det lades upp
 avpublicera/ spara inlägg i papperskorg.
 spara utkast
-
+Integrera sökning via t.ex. youtubes API i video-objekt
