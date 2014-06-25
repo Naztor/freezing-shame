@@ -1,0 +1,69 @@
+{
+	"title": "Fiddling with settings, also, hello world!",
+	"date": "2014-01-01",
+	"tags": ["Hello World", "Test post"],
+	/* Additional metadata ad libitum*/
+	"content": [
+		/* Constant templates like menu and sidebar should probably NOT go here after all. */
+		{
+			"template": "oneColumnTextOnly", /* This template name determines the JSON data structure of this object, and sets a class for CSS use */
+			"sectionHeadline": "", /* Perfectly OK to leave this one blank */
+			"text": "HODOR Hodor. <strong>Hodor!</strong> Hodor<em>hodor</em>...Hodor?"
+		},
+		{
+			"template":"rightObjectAndText",
+			"sectionHeadline": "So let's add an image here",
+			"object": {
+				"template": "image",
+				"imgurl": "http://www.imagesite.com/image.jpg",
+				"caption": "Look! An image!" /* Should this be in the rightObjectAndText template instead? */
+			},
+			"text": "Hodor, the hodorest hodorer, hodors."
+		},
+		{
+			"template": "twoObjects",
+			"sectionHeadline": "",
+			"leftObject": {
+				"template": "vimeoVideo",
+				"vidurl": "http://vimeo.com/osktyfhpwosthimpty",
+				"caption": "Lookit!!!"
+			},
+			"rightObject": {
+				"template": "barChart",
+				"values": [
+					{"name": "M", "value": 20},
+					{"name": "FP", "value": 8},
+					{"name": "KD", "value": 3},
+					{"name": "C", "value": 4}, /* 35 */
+					{"name": "MP", "value": 15},
+					{"name": "S", "value": 25},
+					{"name": "V", "value": 5}, /* 45 */
+					{"name": "SD", "value": 10},
+					{"name": "F!", "value": 6},
+					{"name": "PP", "value": 4}
+				],
+				"caption": "Poll results!"
+			}
+		}
+	],
+	"comments": [
+		{
+			"name": "Newb",
+			"date": "2014-02-03", /* actually, datetime vore bättre */
+			"text": "Capital post, sire!"
+		},
+		{
+			"name": "Thompa",
+			"date": "2014-02-04",
+			"text": "Lowercase post, dweeb!"
+		},
+		{
+			"name": "Mod",
+			"date": "2014-02-04",
+			"text": "Be civil, please!"
+		}
+	]
+}
+
+/* Tricky use case: I want to edit my post layout, changing a template, but keeping the text/object content 
+   Less tricky version: I want to rearrange the order of sections */
