@@ -6,7 +6,7 @@ var Contact = mongoose.model('Contact', contactSchema);
 
 exports.contacts = function(req, res) {
   Contact.find({}, function(err, obj) {
-    res.json(obj)
+    res.json(obj);
   });
 };
 
