@@ -8,7 +8,7 @@ måsten för godkänt och/eller koncept:
 läs på mailchimps api.
 läs på angular
 fixa stabil angularmiljö - FIX
-fixa nodejs och dylikt för att kunna börja - FIX
+fixa nodejs och dylikt för att kunna börja
 rich text editor
 skapa möjlighet att spara template
 skapa möjlighet att visa upp en sparad template
