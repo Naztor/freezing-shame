@@ -1,10 +1,20 @@
 {
-    "name": "contacts"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "= 3.1.0"
-    , "jade": "= 0.28.1"
-    , "mongoose": ">= 3.5.6"
-  }
+	"name" : "mailchimp",
+	"version" : "1.1.0",
+	"description" : "A node.js wrapper for the MailChimp API.",
+	"author" : "Daniel Leinich <leinich@gmx.net>",
+	"keywords" : ["mailchimp", "mailchimp api", "email", "mail", "newsletter", "mandrill"],
+	"main" : "./lib/mailchimp",
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/gomfunkel/node-mailchimp.git"
+	},
+	"dependencies": {
+		"request": "2.x.x",
+		"qs": "0.5.x" 
+	},
+	"devDependencies": {
+		"vows": "0.6.x",
+		"nock": "0.13.x"
+	}
 }
