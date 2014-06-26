@@ -1,7 +1,9 @@
 Attepting to make a new CMS based on using a MEAN-stack, wish us luck :D.
 
+Påminnelse - För att starta node app så skriver vi hädanefter nodemon app.js, för då slipper vi att starta om node efter varje ändring.
 
-to do: 
+
+to do:
 
 måsten för godkänt och/eller koncept:
 
