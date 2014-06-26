@@ -1,29 +1,29 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/contacts_database');
+mongoose.connect('mongodb://localhost/Blog_database');
 
-var contactSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number' });
-var Contact = mongoose.model('Contact', contactSchema);
+var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number' });
+var Blog = mongoose.model('Blog', BlogSchema);
 
-exports.contacts = function(req, res) {
-  Contact.find({}, function(err, obj) {
+exports.Blogs = function(req, res) {
+  Blog.find({}, function(err, obj) {
     res.json(obj);
   });
 };
 
-exports.contact = function(req, res) {
-  Contact.findOne({ _id: req.params.id }, function(err, obj) {
+exports.Blog = function(req, res) {
+  Blog.findOne({ _id: req.params.id }, function(err, obj) {
     res.json(obj);
   });
 };
 
-exports.createContact = function(req, res) {
-  var contact = new Contact(req.body);
-  contact.save();
+exports.createBlog = function(req, res) {
+  var blog = new Blog(req.body);
+  blog.save();
   res.json(req.body);
 };
 
-exports.updateContact = function(req, res) {
-  Contact.findByIdAndUpdate(req.params.id, {
+exports.updateBlog = function(req, res) {
+  Blog.findByIdAndUpdate(req.params.id, {
     $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age }
   }, { upsert: true },
   function(err, obj) {
@@ -31,8 +31,8 @@ exports.updateContact = function(req, res) {
   });
 };
 
-exports.destroyContact = function(req, res) {
-  Contact.remove({ _id: req.params.id }, function(err) {
+exports.destroyBlog = function(req, res) {
+  Blog.remove({ _id: req.params.id }, function(err) {
     res.json(true);
   });
 };

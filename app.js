@@ -24,11 +24,11 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
-app.get('/api/contacts', api.contacts);
-app.get('/api/contacts/:id', api.contact);
-app.post('/api/contacts', api.createContact);
-app.put('/api/contacts/:id', api.updateContact);
-app.delete('/api/contacts/:id', api.destroyContact);
+app.get('/api/blog', api.Blogs);
+app.get('/api/blog/:id', api.Blog);
+app.post('/api/blog', api.createBlog);
+app.put('/api/blog/:id', api.updateBlog);
+app.delete('/api/blog/:id', api.destroyBlog);
 
 app.get('*', routes.index);
 

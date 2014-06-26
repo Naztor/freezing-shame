@@ -1,9 +1,9 @@
-app.controller("ContactsEditCtrl", function($scope, $routeParams, $location, Contact) {
+app.controller("BlogEditCtrl", function($scope, $routeParams, $location, Blog) {
 
   if ($routeParams.id) {
-    $scope.contact = Contact.show({ id: $routeParams.id });
+    $scope.Blog = Blog.show({ id: $routeParams.id });
   } else {
-    $scope.contact = new Contact();
+    $scope.Blog = new Blog();
   }
 
   $scope.submit = function() {
@@ -11,7 +11,7 @@ app.controller("ContactsEditCtrl", function($scope, $routeParams, $location, Con
 
     function success(response) {
       console.log("success", response);
-      $location.path("/contacts");
+      $location.path("/Blog");
     }
 
     function failure(response) {
@@ -28,15 +28,15 @@ app.controller("ContactsEditCtrl", function($scope, $routeParams, $location, Con
     }
 
     if ($routeParams.id) {
-      Contact.update($scope.contact, success, failure);
+      Blog.update($scope.Blog, success, failure);
     } else {
-      Contact.create($scope.contact, success, failure);
+      Blog.create($scope.Blog, success, failure);
     }
 
   };
 
   $scope.cancel = function() {
-    $location.path("/contacts/"+$scope.contact._id);
+    $location.path("/Blog/"+$scope.Blog._id);
   };
 
   $scope.errorClass = function(name) {

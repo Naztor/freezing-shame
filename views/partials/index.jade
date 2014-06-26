@@ -1,4 +1,4 @@
-h3 Contacts
+h3 Blogs
 
 table.table.table-striped
   thead
@@ -8,14 +8,14 @@ table.table.table-striped
     td Age
     td Actions
   tbody
-    tr(ng-repeat="contact in contacts")
-      td {{contact._id}}
-      td {{contact.firstname}}
-      td {{contact.lastname}}
-      td {{contact.age}}
+    tr(ng-repeat="Blog in Blog")
+      td {{Blog._id}}
+      td {{Blog.firstname}}
+      td {{Blog.lastname}}
+      td {{Blog.age}}
       td
-        a(href="/contacts/{{contact._id}}") Show
+        a(href="/Blog/{{Blog._id}}") Show
          |
-        a(href="/contacts/{{contact._id}}/edit") Edit
+        a(href="/Blog/{{Blog._id}}/edit") Edit
 
-button.btn.btn-success(ng-click="new()") New Contact
+button.btn.btn-success(ng-click="new()") New blogpost
