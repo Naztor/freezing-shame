@@ -5,10 +5,10 @@ to do:
 
 måsten för godkänt och/eller koncept:
 
-läs på mailchimps api.
+läs på mailchimps api. - FIX, verkar menlöst
 läs på angular
 fixa stabil angularmiljö - FIX
-fixa nodejs och dylikt för att kunna börja
+fixa nodejs och dylikt för att kunna börja - FIX
 rich text editor
 skapa möjlighet att spara template
 skapa möjlighet att visa upp en sparad template
