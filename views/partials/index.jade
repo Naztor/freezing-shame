@@ -5,12 +5,14 @@ table.table.table-striped
     td First Name
     td Last Name
     td Age
+    td Post
     td Actions
   tbody
     tr(ng-repeat="Blog in Blog")
       td {{Blog.firstname}}
       td {{Blog.lastname}}
       td {{Blog.age}}
+      td {{Blog.post}}
       td
         a(href="/Blog/{{Blog._id}}") Show
          |
