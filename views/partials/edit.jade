@@ -25,5 +25,6 @@ form.form-horizontal(name="form", ng-submit="submit()", novalidate)
     .controls
       a.btn(ng-click="cancel()") Cancel
       button.btn.btn-success(type="submit") Save
+      button.btn.btn-danger(ng-click="deletePost()") Delete
 
 a(href="/Blog/{{Blog.id}}") Back
