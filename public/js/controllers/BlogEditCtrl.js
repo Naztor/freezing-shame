@@ -52,4 +52,16 @@ app.controller("BlogEditCtrl", function($scope, $routeParams, $location, Blog) {
     });
     return result.join(", ");
   };
+
+  $scope.deletePost = function(){
+    var c = confirm("Are you sure that you want to delete the post?");
+    if (c === true) {
+      Blog.delete({id:$routeParams.id});
+      console.log("post deleted");
+      $location.url("/Blog");
+    }
+    else{
+      $scope.cancel();
+    }
+  };
 });
