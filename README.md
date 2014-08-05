@@ -2,7 +2,6 @@ Attepting to make a new CMS based on using a MEAN-stack, wish us luck :D.
 
 Påminnelse - För att starta node app så skriver vi hädanefter nodemon app.js, för då slipper vi att starta om node efter varje ändring.
 
-
 to do:
 
 måsten för godkänt och/eller koncept:
@@ -20,7 +19,7 @@ skapa användare
 ge användare möjlighet att skapa inlägg
 skapa möjlighet att tagga inlägg
 skapa möjlighet att redigera gamla inlägg
-skapa möjlighet att ta bort inlägg
+skapa möjlighet att ta bort inlägg - FIX
 login sida
 GUI
 publik sida
