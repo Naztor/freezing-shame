@@ -1,7 +1,7 @@
 Attepting to make a new CMS based on using a MEAN-stack, wish us luck :D.
 
 
-to do: 
+to do:
 
 måsten för godkänt och/eller koncept:
 
@@ -18,7 +18,7 @@ skapa användare
 ge användare möjlighet att skapa inlägg
 skapa möjlighet att tagga inlägg
 skapa möjlighet att redigera gamla inlägg
-skapa möjlighet att ta bort inlägg
+skapa möjlighet att ta bort inlägg - FIX
 login sida
 GUI
 publik sida
