@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Blog_database');
 
+//schema for inputing new posts in the blog
 var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number', post: 'string' });
 var Blog = mongoose.model('Blog', BlogSchema);
 
@@ -36,3 +37,35 @@ exports.destroyBlog = function(req, res) {
     res.json(true);
   });
 };
+
+//schema for inputing new users into the database.
+var RegisterSchema = mongoose.Schema({username: 'string', password: 'string', email: 'string'});
+var Register = mongoose.model('Register', RegisterSchema);
+
+exports.Registered = function(req, res) {
+  Register.find({}, function(err, obj) {
+    res.json(obj);
+  });
+};
+
+exports.Register = function(req, res) {
+  Register.findOne({ _id: req.params.id }, function(err, obj) {
+    res.json(obj);
+  });
+};
+
+exports.createUser = function(req, res) {
+  var user = new Register(req.body);
+  user.save();
+  res.json(req.body);
+};
+
+exports.updateUser = function(req, res) {
+  Register.findByIdAndUpdate(req.params.id, {
+    $set: { password: req.body.password}
+  }, { upsert: true },
+  function(err, obj) {
+    return res.json(true);
+  });
+};
+
