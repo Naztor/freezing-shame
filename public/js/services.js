@@ -13,3 +13,16 @@ app.factory("Blog", function($resource, $http) {
 
   return resource;
 });
+
+app.factory("User", function($resource, $http) {
+  var resource = $resource("/api/register/:id", { id: "@_id" },
+    {
+      'create':  { method: 'POST' },
+      'index':   { method: 'GET', isArray: true },
+      'show':    { method: 'GET', isArray: false },
+      'update':  { method: 'PUT' }
+    }
+  );
+
+  return resource;
+});
