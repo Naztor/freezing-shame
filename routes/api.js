@@ -39,8 +39,18 @@ exports.destroyBlog = function(req, res) {
 };
 
 //schema for inputing new users into the database.
-var UserSchema = mongoose.Schema({username: 'string', password: 'string', email: 'string'});
+var UserSchema = mongoose.Schema({username: 'string', password: 'string'});
 var User = mongoose.model('User', UserSchema);
+
+//is meant to generate a hashed password
+UserSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+//check that the hashed password is valid.
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
 
 exports.Users = function(req, res) {
   User.find({}, function(err, obj) {
@@ -68,4 +78,3 @@ exports.updateUser = function(req, res) {
     return res.json(true);
   });
 };
-
