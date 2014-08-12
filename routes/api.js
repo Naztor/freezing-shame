@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Blog_database');
 
 //schema for inputing new posts in the blog
-var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number', post: 'string' });
+var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number', post: 'string', tag:'string' });
 var Blog = mongoose.model('Blog', BlogSchema);
 
 exports.Blogs = function(req, res) {
@@ -25,7 +25,7 @@ exports.createBlog = function(req, res) {
 
 exports.updateBlog = function(req, res) {
   Blog.findByIdAndUpdate(req.params.id, {
-    $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age }
+    $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age, post: req.body.post, tag: req.body.tag }
   }, { upsert: true },
   function(err, obj) {
     return res.json(true);

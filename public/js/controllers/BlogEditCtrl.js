@@ -64,4 +64,7 @@ app.controller("BlogEditCtrl", function($scope, $routeParams, $location, Blog) {
       $scope.cancel();
     }
   };
+  $scope.editPost = function() {
+    Blog.update();
+  };
 });
