@@ -29,8 +29,8 @@ app.get('/api/blog/:id', api.Blog);
 app.post('/api/blog', api.createBlog);
 app.put('/api/blog/:id', api.updateBlog);
 app.delete('/api/blog/:id', api.destroyBlog);
-app.get('/api/register', api.Registered);
-app.get('/api/register/:id', api.Register);
+app.get('/api/register', api.Users);
+app.get('/api/register/:id', api.User);
 app.post('/api/register', api.createUser);
 app.put('/api/register/:id', api.updateUser);
 

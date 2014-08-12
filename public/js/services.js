@@ -15,7 +15,7 @@ app.factory("Blog", function($resource, $http) {
 });
 
 app.factory("User", function($resource, $http) {
-  var resource = $resource("/api/register/:id", { id: "@_id" },
+  var resource = $resource("/api/user/:id", { id: "@_id" },
     {
       'create':  { method: 'POST' },
       'index':   { method: 'GET', isArray: true },

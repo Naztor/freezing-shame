@@ -39,29 +39,29 @@ exports.destroyBlog = function(req, res) {
 };
 
 //schema for inputing new users into the database.
-var RegisterSchema = mongoose.Schema({username: 'string', password: 'string', email: 'string'});
-var Register = mongoose.model('Register', RegisterSchema);
+var UserSchema = mongoose.Schema({username: 'string', password: 'string', email: 'string'});
+var User = mongoose.model('User', UserSchema);
 
-exports.Registered = function(req, res) {
-  Register.find({}, function(err, obj) {
+exports.Users = function(req, res) {
+  User.find({}, function(err, obj) {
     res.json(obj);
   });
 };
 
-exports.Register = function(req, res) {
-  Register.findOne({ _id: req.params.id }, function(err, obj) {
+exports.User = function(req, res) {
+  User.findOne({ _id: req.params.id }, function(err, obj) {
     res.json(obj);
   });
 };
 
 exports.createUser = function(req, res) {
-  var user = new Register(req.body);
+  var user = new User(req.body);
   user.save();
   res.json(req.body);
 };
 
 exports.updateUser = function(req, res) {
-  Register.findByIdAndUpdate(req.params.id, {
+  User.findByIdAndUpdate(req.params.id, {
     $set: { password: req.body.password}
   }, { upsert: true },
   function(err, obj) {
