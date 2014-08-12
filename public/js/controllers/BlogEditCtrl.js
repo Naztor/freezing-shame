@@ -37,6 +37,7 @@ app.controller("BlogEditCtrl", function($scope, $routeParams, $location, Blog) {
 
   $scope.cancel = function() {
     $location.path("/Blog/"+$scope.Blog._id);
+    $location.url("/Blog");
   };
 
   $scope.errorClass = function(name) {
