@@ -1,4 +1,5 @@
-h3 Register user
+h3 Signup
+
 
 form.form-horizontal(name="form", ng-submit="submit()", novalidate)
   .control-group(ng-class="errorClass('username')")
@@ -11,11 +12,6 @@ form.form-horizontal(name="form", ng-submit="submit()", novalidate)
     .controls
       input(ng-model="UserData.password", type="password", name="password", placeholder="password", require)
 
-  .control-group(ng-class="errorClass('email')")
-    label.control-label(for="email") enter your email of choice
-    .controls
-      input(ng-model="UserData.email", type="text", name="email", placeholder="email", require)
-
   .control-group
     .controls
-      button.btn.btn-success(type="submit") submit new user
+      button.btn.btn-success(type="submit") submit

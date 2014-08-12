@@ -16,16 +16,22 @@ form.form-horizontal(name="form", ng-submit="submit()", novalidate)
     .controls
       input(ng-model="Blog.age", type="text", name="age", placeholder="Age", require)
 
-      .control-group(ng-class="errorClass('post')")
+  .control-group(ng-class="errorClass('post')")
     label.control-label(for="post") Post
     .controls
       input(ng-model="Blog.post", type="text", name="post", placeholder="Post", require)
+
+  .control-group(ng-class="errorClass('tag')")
+    label.control-label(for="tag") Tag
+    .controls
+      input(ng-model="Blog.tag", type="text", name="tag", placeholder="Tag", require)
 
   .control-group
     .controls
       a.btn(ng-click="cancel()") Cancel
       button.btn.btn-success(type="submit") Save
       button.btn.btn-danger(ng-click="deletePost()") Delete
+      button.btn.btn-warning(ng-click="editPost()") Edit
 
 a(href="/Blog/{{Blog.id}}") Back
 

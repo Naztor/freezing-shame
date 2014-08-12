@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Blog_database');
 
 //schema for inputing new posts in the blog
-var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number', post: 'string' });
+var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number', post: 'string', tag:'string' });
 var Blog = mongoose.model('Blog', BlogSchema);
 
 exports.Blogs = function(req, res) {
@@ -25,7 +25,7 @@ exports.createBlog = function(req, res) {
 
 exports.updateBlog = function(req, res) {
   Blog.findByIdAndUpdate(req.params.id, {
-    $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age }
+    $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age, post: req.body.post, tag: req.body.tag }
   }, { upsert: true },
   function(err, obj) {
     return res.json(true);
@@ -39,8 +39,18 @@ exports.destroyBlog = function(req, res) {
 };
 
 //schema for inputing new users into the database.
-var UserSchema = mongoose.Schema({username: 'string', password: 'string', email: 'string'});
+var UserSchema = mongoose.Schema({username: 'string', password: 'string'});
 var User = mongoose.model('User', UserSchema);
+
+//is meant to generate a hashed password
+UserSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+//check that the hashed password is valid.
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
 
 exports.Users = function(req, res) {
   User.find({}, function(err, obj) {
@@ -68,4 +78,3 @@ exports.updateUser = function(req, res) {
     return res.json(true);
   });
 };
-
