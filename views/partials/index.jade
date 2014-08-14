@@ -6,17 +6,15 @@ form.navbar-form.navbar-left(role='search')
 
 table.table.table-striped
   thead
-    td First Name
-    td Last Name
-    td Age
+    td Username
+    td Title
     td Post
     td Tag
     td Actions
   tbody
     tr(ng-repeat="Blog in Blog")
-      td {{Blog.firstname}}
-      td {{Blog.lastname}}
-      td {{Blog.age}}
+      td {{Blog.username}}
+      td {{Blog.title}}
       td {{Blog.post}}
       td {{Blog.tag}}
       td

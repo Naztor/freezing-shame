@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Blog_database');
 
 //schema for inputing new posts in the blog
-var BlogSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number', post: 'string', tag:'string' });
+var BlogSchema = mongoose.Schema({ username: 'string', title: 'string', post: 'string', tag: {type: 'string', default: ''} });
 var Blog = mongoose.model('Blog', BlogSchema);
 
 exports.Blogs = function(req, res) {
