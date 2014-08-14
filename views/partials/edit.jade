@@ -19,7 +19,8 @@ form.form-horizontal(name="form", ng-submit="submit()", novalidate)
   .control-group(ng-class="errorClass('post')")
     label.control-label(for="post") Post
     .controls
-      input(ng-model="Blog.post", type="text", name="post", placeholder="Post", require)
+      div(text-angular ng-model="Blog.post", name="post")
+      // input(ng-model="Blog.post", type="text", name="post", placeholder="Post", require)
 
   .control-group(ng-class="errorClass('tag')")
     label.control-label(for="tag") Tag
@@ -33,5 +34,3 @@ form.form-horizontal(name="form", ng-submit="submit()", novalidate)
       button.btn.btn-danger(ng-click="deletePost()") Delete
 
 a(href="/Blog/{{Blog.id}}") Back
-
-text-angular(ng-model="htmlVariable")
