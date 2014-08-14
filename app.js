@@ -4,12 +4,50 @@ var express = require('express'),
 
 var app = module.exports = express();
 
+var http = require('http');
+var path = require('path');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    console.log(username, password, done);
+    if (username === "admin" && password === "admin") // stupid example
+      return done(null, {name: "admin"}, {message:"hej"});
+
+    return done(null, false, { message: 'Incorrect username.' });
+  }
+));
+
+// Serialized and deserialized methods when got from session
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+});
+
+// Define a middleware function to be used for every secured routes
+var auth = function(req, res, next){
+  if (!req.isAuthenticated())
+    res.send(401);
+  else
+    next();
+};
+
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(__dirname + '/public'));
+  
+
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: 'securedsession' }));
+  app.use(passport.initialize()); // Add passport initialization
+  app.use(passport.session());    // Add passport initialization
   app.use(app.router);
 });
 
@@ -19,6 +57,19 @@ app.configure('development', function(){
 
 app.configure('production', function(){
   app.use(express.errorHandler());
+});
+
+app.get('/loggedin', function(req, res) {
+  res.send(req.isAuthenticated() ? req.user : '0');
+});
+
+app.post('/login', passport.authenticate('local'), function(req, res) {
+  res.send(req.user);
+});
+
+app.post('/logout', function(req, res){
+  req.logOut();
+  res.send(200);
 });
 
 app.get('/', routes.index);
