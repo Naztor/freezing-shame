@@ -25,7 +25,7 @@ exports.createBlog = function(req, res) {
 
 exports.updateBlog = function(req, res) {
   Blog.findByIdAndUpdate(req.params.id, {
-    $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age, post: req.body.post, tag: req.body.tag }
+    $set: { username: req.body.username, title: req.body.title, post: req.body.post, tag: req.body.tag }
   }, { upsert: true },
   function(err, obj) {
     return res.json(true);
