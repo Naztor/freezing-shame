@@ -49,15 +49,16 @@ var app = angular.module('myApp', ["ngRoute", "ngResource", "textAngular"]).
 
 
     $routeProvider
+      .when("/Public", {templateUrl: "partials/public.jade", controller: "PublicCtrl"})
       .when("/Login", {templateUrl: "partials/login.jade", controller: "LoginCtrl"})
       .when("/Register", {templateUrl: "partials/register.jade", controller: "RegisterCtrl"})
       .when("/Blog", { templateUrl: "partials/index.jade", controller: "BlogIndexCtrl", resolve: {loggedin: checkLoggedin} })
       .when("/Blog/new", { templateUrl: "partials/edit.jade", controller: "BlogEditCtrl" })
       .when("/Blog/:id", { templateUrl: "partials/show.jade", controller: "BlogShowCtrl" })
       .when("/Blog/:id/edit", { templateUrl: "partials/edit.jade", controller: "BlogEditCtrl" })
-      .otherwise({ redirectTo: "/Login" });
+      .otherwise({ redirectTo: "/Public" });
   }]);
-/*.run(function($rootScope, $http){
+app.run(function($rootScope, $http){
     $rootScope.message = '';
 
     // Logout function is available in any pages
@@ -65,4 +66,4 @@ var app = angular.module('myApp', ["ngRoute", "ngResource", "textAngular"]).
       $rootScope.message = 'Logged out.';
       $http.post('/logout');
     };
-  });*/
+  });
