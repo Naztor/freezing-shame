@@ -11,14 +11,14 @@ var LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    if (username === "admin" && password === "admin") // stupid example
+    if (username === "admin" && password === "admin") // fulhack in absurdum
       return done(null, {name: "admin"}, {message:"hej"});
 
     return done(null, false, { message: 'Incorrect username.' });
   }
 ));
 
-// Serialized and deserialized methods when got from session
+// Behövs för passport.
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -27,7 +27,7 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-// Define a middleware function to be used for every secured routes
+// Används varje gång man ber passport att kolla om användaren är autentiserad
 var auth = function(req, res, next){
   if (!req.isAuthenticated())
     res.send(401);
@@ -45,8 +45,8 @@ app.configure(function(){
 
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'securedsession' }));
-  app.use(passport.initialize()); // Add passport initialization
-  app.use(passport.session());    // Add passport initialization
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(app.router);
 });
 
