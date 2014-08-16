@@ -2,12 +2,14 @@ var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api');
 
+
 var app = module.exports = express();
 
 var http = require('http');
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var user = require('./routes/userModel');
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -79,10 +81,10 @@ app.get('/api/blog/:id', api.Blog);
 app.post('/api/blog', api.createBlog);
 app.put('/api/blog/:id', api.updateBlog);
 app.delete('/api/blog/:id', api.destroyBlog);
-app.get('/api/user', api.Users);
-app.get('/api/user/:id', api.User);
-app.post('/api/user', api.createUser);
-app.put('/api/user/:id', api.updateUser);
+app.get('/userModel/user', user.Users);
+app.get('/userModel/user/:id', user.User);
+app.post('/userModel/user', user.createUser);
+app.put('/userModel/user/:id', user.updateUser);
 
 app.get('*', routes.index);
 

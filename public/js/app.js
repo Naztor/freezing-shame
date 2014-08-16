@@ -40,7 +40,7 @@ var app = angular.module('myApp', ["ngRoute", "ngResource", "textAngular"]).
           // Error: check the error status to get only the 401
           function(response) {
             if (response.status === 401)
-              $location.url('/login');
+              $location.url('/Login');
             return $q.reject(response);
           }
         );
