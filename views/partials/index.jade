@@ -1,8 +1,8 @@
 h3 Blogs
 
-form.navbar-form.navbar-left(role='search')
+form.navbar-form.navbar-left(ng-class='searchbar')
     .form-group
-        input.form-control(type='text', placeholder='Search')button.btn.btn-default(type='submit') Submit
+        input.form-control(type='text', placeholder='Search')button.btn.btn-default(ng-click="searchTags()") Submit
 
 table.table.table-striped
   thead
