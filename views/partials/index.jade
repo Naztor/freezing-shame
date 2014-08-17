@@ -15,7 +15,7 @@ table.table.table-striped
     tr(ng-repeat="Blog in Blog")
       td {{Blog.username}}
       td {{Blog.title}}
-      td {{Blog.post}}
+      td(ng-bind-html="Blog.post")
       td {{Blog.tag}}
       td
         a(href="/Blog/{{Blog._id}}") Show
