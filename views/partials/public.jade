@@ -1,8 +1,10 @@
 h3 These are the posts made by our users.
 
 ul.list-group.col-lg-9
+  div.jumbotron
     li.list-group-item(ng-repeat="Blog in Blog")
-       {{Blog.username}}
-       {{Blog.title}}
-       div(ng-bind-html="Blog.post")
-       {{Blog.tag}}
+      h5 Posted by: {{Blog.username}}
+      h5 {{Blog.title}} 
+      div(ng-bind-html="Blog.post")
+      h5 Tags:
+      {{Blog.tag}}
