@@ -30,6 +30,3 @@ exports.updateUser = function(req, res) {
     return res.json(true);
   });
 };
-
-//module.exports = mongoose.model('User', UserSchema);
-
