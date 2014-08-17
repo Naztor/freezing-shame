@@ -15,7 +15,7 @@ form.form-horizontal(name="form", ng-submit="submit()", novalidate)
     label.control-label(for="post") Post
     .controls
       div(text-angular ng-model="Blog.post", name="post")
-      // input(ng-model="Blog.post", type="text", name="post", placeholder="Post", require)
+      // input(ng-model="Blog.post", type="html", name="post", placeholder="Post", require)
 
   .control-group(ng-class="errorClass('tag')")
     label.control-label(for="tag") Tag

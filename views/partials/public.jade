@@ -4,5 +4,5 @@ ul.list-group.col-lg-9
     li.list-group-item(ng-repeat="Blog in Blog")
        {{Blog.username}}
        {{Blog.title}}
-       {{Blog.post}}
+       div(ng-bind-html="Blog.post")
        {{Blog.tag}}
