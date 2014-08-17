@@ -4,12 +4,11 @@
 var app = angular.module('myApp', ["ngRoute", "ngResource", "textAngular"]).
   config(['$routeProvider', '$locationProvider','$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
-
+    //use passport to check if a user is authenticated when they try to access a specified page.
     var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
-      // Initialize a new promise
+
       var deferred = $q.defer();
 
-      // Make an AJAX call to check if the user is logged in
       $http.get('/loggedin').success(function(user){
         // Authenticated
         if (user !== '0')
@@ -25,11 +24,7 @@ var app = angular.module('myApp', ["ngRoute", "ngResource", "textAngular"]).
 
       return deferred.promise;
     };
-    //================================================
-    
-    //================================================
-    // Add an interceptor for AJAX errors
-    //================================================
+    //an interceptor for ajax errors
     $httpProvider.responseInterceptors.push(function($q, $location) {
       return function(promise) {
         return promise.then(
@@ -61,7 +56,7 @@ var app = angular.module('myApp', ["ngRoute", "ngResource", "textAngular"]).
 app.run(function($rootScope, $http){
     $rootScope.message = '';
 
-    // Logout function is available in any pages
+    // Logout function is available on any page, however it is not implemented.
     $rootScope.logout = function(){
       $rootScope.message = 'Logged out.';
       $http.post('/logout');

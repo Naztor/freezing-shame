@@ -13,14 +13,14 @@ var user = require('./routes/userModel');
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    if (username === "admin" && password === "admin") // fulhack in absurdum
+    if (username === "admin" && password === "admin") // fulhack in absurdum, har inte lyckats räkna ut hur man får ut användardata ur databasen.
       return done(null, {name: "admin"}, {message:"hej"});
 
     return done(null, false, { message: 'Incorrect username.' });
   }
 ));
 
-// Behövs för passport.
+// serialization needed to make passport work
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -29,7 +29,7 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-// Används varje gång man ber passport att kolla om användaren är autentiserad
+// used whenever passport is asked to check if a user is authenticated
 var auth = function(req, res, next){
   if (!req.isAuthenticated())
     res.send(401);
