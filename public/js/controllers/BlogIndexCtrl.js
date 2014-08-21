@@ -6,7 +6,6 @@ app.controller("BlogIndexCtrl", function($scope, $location, Blog) {
   };
 
   $scope.searchTags = function() {
-    var tagSearch = $scope.searchbar;
-    console.log(tagSearch);
-  };
+    find.{tags:{ $all: [" + $scope.searchbar + "]}}
+    };
 });
